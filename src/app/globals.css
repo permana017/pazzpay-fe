@@ -1,0 +1,40 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body{
+
+  background-color: #FFFFFF;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.container {
+    max-width: 1440px!important;
+    width: 100%;
+    padding: 0 150px;
+    height: 100%;
+  }
+
+  @media only screen and (max-width: 768px) {
+    .container {
+      padding: 0 16px;
+    }
+    body{
+
+      background-color: #FFFFFF;
+    }
+  }
+  @media only screen and (max-width: 820px) {
+    .container {
+      padding: 0 16px;
+    }
+    body{
+
+      background-color: #FFFFFF;
+    }
+  }
