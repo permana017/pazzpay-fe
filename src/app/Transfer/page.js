@@ -5,10 +5,10 @@ import Image from 'next/image'
 import arrowUp from "public/arrow-up-black.png"
 import Navbar from 'src/component/Navbar'
 import Navigation from 'src/component/Navigation'
-import Cardreciever from 'src/component/Cardreciever'
 import Footer from 'src/component/Footer'
 import Filter from 'src/component/Filter'
 import { useRouter } from 'next/navigation'
+import Reciever from 'src/component/CardReciever'
 
 
 function Transfer() {
@@ -27,7 +27,7 @@ function Transfer() {
                     </div>
                     <div className='flex'>
                         <div className='w-full'>
-                            <Cardreciever/>
+                            <Reciever/>
                         </div>
                     </div>
                     <Filter/>

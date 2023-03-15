@@ -10,7 +10,7 @@ import { useRouter } from "next/navigation";
 
 
 
-function CardReciever() {
+function Reciever() {
     const router = useRouter()
     const [data, setData] = useState([])
     const [serach, setSerach] = useState("")
@@ -62,4 +62,4 @@ function CardReciever() {
   )
 }
 
-export default CardReciever
+export default Reciever
