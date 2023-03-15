@@ -19,10 +19,6 @@ import Cookies from 'js-cookie';
 function TransferInput () {
     const router = useRouter();
     const userId =  Cookies.get("@userLogin")
-    
-    if (!userId || userId == null || userId == undefined ) {
-        redirect("/")
-    }
 
     const pathname = usePathname();
     const id = pathname.split("/")[2]

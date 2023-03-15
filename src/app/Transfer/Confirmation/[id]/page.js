@@ -13,9 +13,6 @@ function Confirmation() {
     const [result, setResult] = useState("")
     const [data, setData] = useState([])
     const transfer = (Cookies.get("@transfer"))
-    if (!userId || userId == null || userId == undefined ) {
-        redirect("/")
-    }
     
     const router = useRouter()
     useEffect(() => {
