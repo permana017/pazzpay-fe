@@ -1,4 +1,6 @@
-import React from 'react'
+
+'use client'
+import React, { useEffect, useState } from 'react'
 import Image from 'next/image'
 import avatar from "public/avatar.png"
 import bell from "public/bell.png"
@@ -10,8 +12,14 @@ import CardHistory from 'src/component/CardHistory'
 import CardGrapich from 'src/component/CardGraphic'
 import Footer from 'src/component/Footer'
 import CardSaldo from 'src/component/CardSaldo'
+import { useRouter } from 'next/navigation'
+
 
 function Home() {
+    const router = useRouter()
+    const [data, setData] = useState([])
+    const userId = JSON.parse(localStorage.getItem("@userLogin"))?.user?.user_id;
+    console.log(userId);
     return (
         <main className='flex flex-col items-center w-full'>
             <Navbar/>
@@ -29,6 +37,7 @@ function Home() {
                   <CardSaldo/>
                   <div className='flex justify-between md:hidden'>
                       <button
+                            onClick={()=>router.push("/Transfer")}
                           className="btn btn-active btn-ghost text-base h-14 font-bold text-[#514F5B] mt-8 mb-10 w-[48%]">
                           <Image src={arrowUp} className="w-7 mr-4" alt="icon"/>
                           Transfer</button>

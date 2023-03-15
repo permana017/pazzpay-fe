@@ -14,14 +14,11 @@ function CardReciever() {
     const router = useRouter()
     const [data, setData] = useState([])
     const [serach, setSerach] = useState("")
-    console.log("search", serach);
-    console.log(data);
 
     const getData = () => {
         axios
             .get(`http://localhost:5001/api/users?search=${serach}`)
             .then(res => {
-                console.log("data dari be");
                 setData(res.data.data)
             })
             .catch(err => console.log(err))
@@ -43,10 +40,9 @@ function CardReciever() {
                 </div>
             </div>
             {
-                data.map((item) => (
-                < > 
+                data.map((item,i) => (
                     <div 
-                    key={item.user_id}
+                    key={i}
                     onClick={() => router.push(`/Transfer/${item.user_id}`)}
                     className = "card bg-base-100 shadow-md w-full my-2 md:my-4 md:shadow-none" > 
                         <div className="card-body p-4 flex flex-row justify-start items-center">
@@ -57,7 +53,6 @@ function CardReciever() {
                             </div>
                         </div>
                     </div>
-                </>
                 ))
             }
         </div>

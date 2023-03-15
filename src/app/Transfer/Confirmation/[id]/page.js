@@ -14,7 +14,6 @@ function Confirmation() {
     const router = useRouter()
     const data = JSON.parse(localStorage.getItem("@transfer"))
     const btn = "btn btn-ghost w-20 mx-3 rounded-full text-4xl border-none h-20"
-    console.log("reciever", data);
 
 
     // const dataTransfer = {

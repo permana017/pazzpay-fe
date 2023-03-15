@@ -2,25 +2,37 @@
 
 
 'use client';
-import { useState } from "react"
+import { useState, useEffect } from "react"
 import Image from "next/image"
 import hero from "public/herro.webp"
 import CardInput from "src/component/CardInput/cardInput"
 import person from "public/person.png"
 import img from "public/mail.png"
 import imgLock from "public/lock.png"
+import imgPhone from "src/assets/phone.png"
 import axios from "axios";
 import { useRouter } from "next/navigation";
 
 function SignUp() {
     const router = useRouter()
+    const [validate, setValidate] = useState({ error: false, message: "" });
     const [signupForm, setSignupForm] = useState({
         username: "",
         email:"",
-        password:""
+        password:"",
+        phone_number:""
     })
 
-    console.log("data", signupForm)
+    useEffect(() => {
+        setTimeout(() => {
+            setValidate({
+                ...validate,
+                error:false
+            })
+        }, 3000);
+      }, [validate.error == true])
+
+    // console.log("data", signupForm)
 
     const handleSignUp =(event)=>{
         event.preventDefault();
@@ -34,7 +46,8 @@ function SignUp() {
             router.push("/Login");
             })
             .catch((err) => {
-                console.log(err)
+                // console.log(err?.response?.data?.message);
+                setValidate({ error: true, message: err?.response?.data?.message});
             });
     }
 
@@ -59,9 +72,17 @@ function SignUp() {
                     handleOnSubmit={handleSignUp}
                     title={<>Sign Up</>}
                     desc={<>Create your account to access FazzPay.</>}
+                    validate={validate?.error ? (
+                        <div className="alert alert-error shadow-lg my-5">
+                            <div className="w-full flex justify-left">
+                                <svg xmlns="http://www.w3.org/2000/svg" className="stroke-current flex-shrink-0 h-6 w-6" fill="none" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M10 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2m7-2a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+                                <span>{validate.message}</span>
+                            </div>
+                        </div>
+                    ):null}
                     username={
                     <div className = 'flex items-center border-b-[3px] w-full' > 
-                        <Image src={person} alt="name" className="w-[25px] mr-5 "/>
+                        <Image src={person} alt="name" className="w-[25px] mr-5"/>
                         <input
                             onChange={(e) =>
                                 setSignupForm({
@@ -75,8 +96,8 @@ function SignUp() {
                         </div>
                     }
                     email={
-                    <div className='flex items-center border-b-[3px] w-full  mt-16'>
-                        <Image src={img} alt="name" className="w-[25px] mr-5 "/>
+                    <div className='flex items-center border-b-[3px] w-full mt-5  md:mt-10'>
+                        <Image src={img} alt="name" className="w-[25px] mr-5"/>
                         <input
                             onChange={(e) =>
                                 setSignupForm({
@@ -89,10 +110,28 @@ function SignUp() {
                             className="w-full text-base outline-none py-3"/>
                     </div>
                     }
+                    phone={
+                        <div>
+                            <div className='flex items-center border-b-[3px] w-full mt-5 md:mt-10'>
+                                <Image src={imgPhone} alt="name" className="w-[25px] mr-5"/>
+                                <input
+                                    onChange={(e) =>
+                                        setSignupForm({
+                                        ...signupForm,
+                                        phone_number: e.target.value,
+                                        })
+                                    }
+                                    type="text"
+                                    placeholder="Enter your Phone Number"
+                                    className="w-full text-base outline-none py-3"/>
+                                </div>
+                            {/* <label className="text-base font-semibold flex w-full justify-end">Forgot password?</label> */}
+                        </div> 
+                    }
                     password={
                         <div>
-                             <div className='flex items-center border-b-[3px] w-full mt-16 mb-10'>
-                            <Image src={imgLock} alt="name" className="w-[25px] mr-5 "/>
+                             <div className='flex items-center border-b-[3px] w-full mt-5 md:mt-10 mb-10'>
+                            <Image src={imgLock} alt="name" className="w-[25px] mr-5"/>
                             <input
                                 onChange={(e) =>
                                     setSignupForm({
@@ -109,7 +148,7 @@ function SignUp() {
                     }
                     option={
                         <p className="text-base font-medium mt-7 mb-12">Don’t have an account? Let’s
-                            <span className="text-base text-[#6379F4]"> Login</span>
+                            <span onClick={()=>router.push("/Login")} className="text-base text-[#6379F4] cursor-pointer">Login</span>
                         </p>
                     }
                     textBtn={

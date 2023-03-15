@@ -19,11 +19,7 @@ function Transfer () {
     const data = router.query
   
     const pathname = usePathname();
-    console.log("data parmas",pathname.split("/"))
-    console.log("router",router.query)
     const [result, setResult] = useState("")
-    console.log("result",result);
-    console.log("ieu data",Number(result));
     const backspace = () => {
         setResult(result.slice(0, result.length -1))
     }

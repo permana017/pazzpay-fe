@@ -18,28 +18,35 @@ function Login() {
         email: "",
         password: "",
       });
-      console.log("login",loginForm);
-      const [validate, setValidate] = useState({ error: false, message: "" });
+      const [validate, setValidate] = useState({ error: false, message: "" });  
       const router= useRouter();
     
       const handleLogin = (event) => {
         event.preventDefault();
-        console.log("login",loginForm);
         axios({
           url: "http://localhost:5001/api/auth/login-user",
           method: "POST",
           data: loginForm,
         })
           .then((res) => {
-            console.log(res.data.data);
             localStorage.setItem("@userLogin", JSON.stringify(res.data.result));
             alert(res.data.message);
             router.push("/Home");
           })
           .catch((err) => {
-            setValidate({ error: true, message: err.response.data.message });
+            setValidate({ error: true, message: err?.response?.data?.message});
           });
       };
+
+      useEffect(() => {
+        setTimeout(() => {
+            setValidate({
+                ...validate,
+                error:false
+            })
+        }, 3000);
+      }, [validate.error == true])
+      
 
 
 
@@ -60,12 +67,21 @@ function Login() {
             <div
                 className='flex flex-col justify-between items-center h-[100vh] md:h-auto md:w-[45%] md:pr-[134px]'>
                 <div className="pt-24 text-3xl text-[#6379F4] font-semibold md:hidden">FazzPay</div>
-                <CardInput 
+                <CardInput
+                validate={ validate.error == true ? (
+                    <div className="alert alert-error shadow-lg mb-5">
+                        <div className="w-full flex justify-left">
+                            <svg xmlns="http://www.w3.org/2000/svg" className="stroke-current flex-shrink-0 h-6 w-6" fill="none" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M10 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2m7-2a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+                            <span>{validate.message}</span>
+                        </div>
+                    </div>
+                ):null
+                }
                 handleOnSubmit={handleLogin}
                 desc={<>Login to your existing account to access
                     all the features in FazzPay.</>}
                 email={
-                    <div className = 'flex items-center border-b-[3px] w-full' > 
+                    <div className = 'flex items-center border-b-[3px] w-full md:mt-10 mt-5' > 
                         <Image src={img} alt="name" className="w-[25px] mr-5 "/>
                         <input
                             onChange={(e)=> setLoginForm({
@@ -77,8 +93,9 @@ function Login() {
                             className="w-full text-base outline-none py-3"/>
                     </div>
                 }
+                
                 password={
-                    <div className = 'flex items-center border-b-[3px] w-full' > 
+                    <div className = 'flex items-center border-b-[3px] w-full md:mt-10 mt-5  mb-16' > 
                     <Image src={imgLock} alt="name" className="w-[25px] mr-5 "/>
                     <input
                         onChange={(e)=> setLoginForm({
@@ -92,7 +109,9 @@ function Login() {
                 }
                 option={
                     <p className="text-base font-medium mt-7 mb-12">Don’t have an account? Let’s
-                        <span className="text-base text-[#6379F4]"> Sign Up</span>
+                        <span
+                        onClick={()=>router.push("/Signup")} 
+                        className="text-base text-[#6379F4] cursor-pointer"> Sign Up</span>
                     </p>
                 }
                 textBtn={

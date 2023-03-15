@@ -28,8 +28,7 @@ function Navbar() {
         // const data = getUser()
         // console.log(data);
     const [data, setData] = useState([])
-    console.log("hallo",data);
-    const userId = JSON.parse(localStorage.getItem("@userLogin"))?.user.user_id;
+    const userId = JSON.parse(localStorage.getItem("@userLogin"))?.user?.user_id;
     useEffect(() => {
         axios
         .get(`http://localhost:5001/api/users/${userId}`)
@@ -41,8 +40,6 @@ function Navbar() {
 
     const router = useRouter()
     const [isLogin, setIsLogin] = useState(false)
-    
-    console.log(isLogin);
     
     useEffect(()=> {
         if(localStorage.getItem('@userLogin')) {
@@ -63,10 +60,10 @@ function Navbar() {
     return (
         <div className=' hidden md:flex justify-center w-full bg-red-900 fixed z-20'>
             <div
-                className="navbar bg-base-100 w-full p-0 shadow-xl flex justify-center h-[120px] ">
+                className="navbar bg-base-100 w-full p-0 shadow-md flex justify-center h-[120px] ">
                 <div className='container flex items-center'>
                     <div
-                    onClick={()=> router.push("/Home")}
+                    onClick={()=> router.push("/")}
                      className="flex-1">
                         <a className="btn btn-ghost normal-case text-2xl text-[#6379F4]">FazzPay</a>
                     </div>
@@ -97,17 +94,13 @@ function Navbar() {
                                 </div>                            
                             </div>
                         </div>
-                        {[2].map((item,i)=>(
-                            <>
-                                <div className='flex justify-end items-center w-48 h-12'>
-                                    <div className='w-2/3 mr-5 flex flex-col justify-between h-full'>
-                                        <p className='font-bold text-base'>{data.username}</p>
-                                        <p className='font-normal text-xs text-[#646464]'>{data.phone_number}</p>
-                                    </div>
-                                    <Image src={bell} alt="avatar" className='w-8 h-8'/>
-                                </div>
-                            </>
-                        ))}
+                        <div className='flex justify-end items-center w-48 h-12'>
+                            <div className='w-2/3 mr-5 flex flex-col justify-between h-full'>
+                                <p className='font-bold text-base'>{data.username}</p>
+                                <p className='font-normal text-xs text-[#646464]'>{data.phone_number}</p>
+                            </div>
+                            <Image src={bell} alt="avatar" className='w-8 h-8'/>
+                        </div>
                         </>
                     
                     : <BeforeLogin/>

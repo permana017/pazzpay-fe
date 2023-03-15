@@ -3,7 +3,7 @@ import Image from "next/image"
 
 
 
-export default function CardInput({username, password, email, desc, title, textBtn, option, pin, handleOnSubmit}) {
+export default function CardInput({username, password, email, desc, title, textBtn, option, pin, handleOnSubmit, validate, phone}) {
     return (
         <>
             <div
@@ -20,9 +20,11 @@ export default function CardInput({username, password, email, desc, title, textB
                             money is eassier than ever, you can access FazzPay wherever you are. Desktop,
                             laptop, mobile phone? we cover all of that for you!</p>
                     </div>
+                    {validate}
                     <form className="w-full" onSubmit={handleOnSubmit}>
                         {username}
                         {email}
+                        {phone}
                         {password}
                         {pin}
                         {textBtn}

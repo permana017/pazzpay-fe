@@ -17,14 +17,14 @@ import axios from 'axios';
 
 function TransferInput () {
     const router = useRouter();
-    const userId = JSON.parse(localStorage.getItem("@userLogin"))?.user.user_id;
+    const userId = JSON.parse(localStorage.getItem("@userLogin"))?.user?.user_id;
     const pathname = usePathname();
     const id = pathname.split("/")[2]
 
     const [result, setResult] = useState(0)
+    console.log("result", result);
     const [data, setData] = useState([])
     const [dataUser, setDataUser] = useState([])
-    console.log(dataUser)
     const [desc, setdesc] = useState("")
 
     
@@ -92,7 +92,7 @@ function TransferInput () {
                 onSubmit={handleTransfer}
                 className='md:w-[76%] w-full md:shadow-md md:rounded-3xl'>
                     <div className='mt-12 mb-10 flex items-center md:hidden'>
-                        <Image src={arrowUp} alt="avatar" className='w-8 h-8 -rotate-90'/>
+                        <Image onClick={()=> router.push("/Transfer")} src={arrowUp} alt="avatar" className='w-8 h-8 -rotate-90'/>
                         <p className='font-bold ml-5 text-xl'>Transfer</p>
                     </div>
                     <div className="card bg-base-100 shadow-md w-full my-2 md:my-4 md:shadow-none">
@@ -125,22 +125,6 @@ function TransferInput () {
                     </div>
                     <div className='hidden md:flex justify-end mt-32'>
                         <button className='btn btn-primary text-end' type='submit'>continue</button>
-                    </div>
-                    <div className='flex flex-wrap w-full justify-between p-5 md:hidden'>
-                        <button className={btn} onClick={(e)=> setResult(result.concat(1))}>1</button>
-                        <button className={btn} onClick={(e)=> setResult(result.concat(2))}>2</button>
-                        <button className={btn} onClick={(e)=> setResult(result.concat(3))}>3</button>
-                        <button className={btn} onClick={(e)=> setResult(result.concat(4))}>4</button>
-                        <button className={btn} onClick={(e)=> setResult(result.concat(5))}>5</button>
-                        <button className={btn} onClick={(e)=> setResult(result.concat(6))}>6</button>
-                        <button className={btn} onClick={(e)=> setResult(result.concat(7))}>7</button>
-                        <button className={btn} onClick={(e)=> setResult(result.concat(8))}>8</button>
-                        <button className={btn} onClick={(e)=> setResult(result.concat(9))}>9</button>
-                        <button className={btn} onClick={(e)=> setResult(result.concat(0))}>0</button>
-                        <button className={btn}>.</button>
-                        <button className={btn} onClick={()=> backspace()}>
-                            <Image src={deleted} className="w-8 h-8" alt="name"/>
-                        </button>
                     </div>
                 </form>
             </div>

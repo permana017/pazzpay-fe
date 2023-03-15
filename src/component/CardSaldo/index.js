@@ -9,10 +9,8 @@ import axios from "axios";
 
 function CardSaldo() {
     const router = useRouter()
-    const userId = JSON.parse(localStorage.getItem("@userLogin"))?.user.user_id;
-    console.log("id saldo", userId);
+    const userId = JSON.parse(localStorage.getItem("@userLogin"))?.user?.user_id;
     const [data, setData] = useState([])
-    console.log("data saldo", data);
     useEffect(() => {
         axios
         .get(`http://localhost:5001/api/users/${userId}`)
