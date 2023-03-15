@@ -11,6 +11,9 @@ import Cookies from 'js-cookie';
 function CardHistory({heigth}) {
     const router = useRouter()
     const userId = Cookies.get("@userLogin")
+    if (!userId || userId == null || userId == undefined ) {
+        redirect("/")
+    }
     const [data, setData] = useState([])
     useEffect(() => {
         axios

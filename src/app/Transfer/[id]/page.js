@@ -19,6 +19,11 @@ import Cookies from 'js-cookie';
 function TransferInput () {
     const router = useRouter();
     const userId =  Cookies.get("@userLogin")
+    
+    if (!userId || userId == null || userId == undefined ) {
+        redirect("/")
+    }
+
     const pathname = usePathname();
     const id = pathname.split("/")[2]
     const [result, setResult] = useState(0)
@@ -123,7 +128,7 @@ function TransferInput () {
                             </div>
                         </div>
                     </div>
-                    <div className='hidden md:flex justify-end mt-32'>
+                    <div className='flex justify-end mt-52 md:mr-8'>
                         <button className='btn btn-primary text-end' type='submit'>continue</button>
                     </div>
                 </form>

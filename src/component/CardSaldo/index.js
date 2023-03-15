@@ -27,9 +27,9 @@ function CardSaldo() {
         <div className="card-compact rounded-xl p-2 w-full bg-primary text-primary-content">
             <div className="card-body flex-row justify-between">
                 <div className='flex flex-col justify-between'>
-                    <p>Balance</p>
+                    <p className="text-lg">Balance</p>
                     <h2 className="card-title text-2xl md:text-4xl md:my-3">Rp {data.saldo != null ? data.saldo : 0}</h2>
-                    <p className='md:mt-6'>{data.phone_number}</p>
+                    <p className='md:mt-6 text-lg'>+62 {data.phone_number}</p>
                 </div>
                 <div className='hidden md:flex flex-col justify-between'>
                     <button

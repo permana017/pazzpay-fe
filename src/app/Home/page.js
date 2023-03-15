@@ -23,6 +23,10 @@ function Home() {
     const router = useRouter()
     const [data, setData] = useState([])
     const userId =  Cookies.get("@userLogin")
+
+    if (!userId || userId == null || userId == undefined ) {
+        redirect("/")
+    }
     
 
     if (!userId || userId == null || userId == undefined ) {

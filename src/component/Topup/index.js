@@ -7,7 +7,7 @@ import Cookies from 'js-cookie'
 
 function Topup({showModal}) {
 
-    const userId = Cookies.get("@userLogin")?.user?.user_id
+    const userId = Cookies.get("@userLogin")
     const [update, setUpdate] = useState({saldo: 0})
 
     const handleConfirm = (event) => {

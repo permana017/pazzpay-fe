@@ -148,11 +148,11 @@ function SignUp() {
                     }
                     option={
                         <p className="text-base font-medium mt-7 mb-12">Don’t have an account? Let’s
-                            <span onClick={()=>router.push("/Login")} className="text-base text-[#6379F4] cursor-pointer">Login</span>
+                            <span onClick={()=>router.push("/Login")} className="text-base text-[#6379F4] cursor-pointer"> Login</span>
                         </p>
                     }
                     textBtn={
-                        <button className="btn btn-active btn-ghost w-full md:mt-24 text-lg text-[#88888F] font-semi-bold" type="submit">Login</button>
+                        <button className="btn btn-active btn-ghost w-full md:mt-24 text-lg text-[#88888F] font-semi-bold" type="submit">Signup</button>
                     }
                 />
             </div>
