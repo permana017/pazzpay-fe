@@ -39,7 +39,7 @@ function Confirmation() {
 
     const handleConfirm = (event) => {
         event.preventDefault();
-        axios.post("http://localhost:5001/api/transaction/transfer",{
+        axios.post("https://pazzpaybe.cyclic.app/api/transaction/transfer",{
             sender_id: data.sender_id,
             reciever_id: data.reciever_id,
             reciever_id: data.reciever_id,

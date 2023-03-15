@@ -32,7 +32,7 @@ function TransferInput () {
 
     useEffect(() => {
         axios
-        .get(`http://localhost:5001/api/users/${id}`)
+        .get(`https://pazzpaybe.cyclic.app/api/users/${id}`)
         .then(res => {
             setData(res.data.data)
         })
@@ -43,7 +43,7 @@ function TransferInput () {
 
     const getDataUser = () => {
         axios
-            .get(`http://localhost:5001/api/users/${userId}`)
+            .get(`https://pazzpaybe.cyclic.app/api/users/${userId}`)
             .then(res => {
                 setDataUser(res.data.data)
             })

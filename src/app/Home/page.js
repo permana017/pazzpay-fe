@@ -32,7 +32,7 @@ function Home() {
     const [user, setUser] = useState([])
     useEffect(() => {
         axios
-        .get(`http://localhost:5001/api/users/${userId}`)
+        .get(`https://pazzpaybe.cyclic.app/api/users/${userId}`)
         .then(res => {
             setUser(res.data.data)
         })

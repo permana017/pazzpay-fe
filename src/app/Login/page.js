@@ -25,7 +25,7 @@ function Login() {
       const handleLogin = (event) => {
         event.preventDefault();
         axios({
-          url: "http://localhost:5001/api/auth/login-user",
+          url: "https://pazzpaybe.cyclic.app/api/auth/login-user",
           method: "POST",
           data: loginForm,
         })

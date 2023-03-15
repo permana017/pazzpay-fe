@@ -37,7 +37,7 @@ function SignUp() {
     const handleSignUp =(event)=>{
         event.preventDefault();
         axios({
-            url: "http://localhost:5001/api/auth/regis-user",
+            url: "https://pazzpaybe.cyclic.app/api/auth/regis-user",
             method: "POST",
             data: signupForm,
         })

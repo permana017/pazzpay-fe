@@ -13,7 +13,7 @@ function Topup({showModal}) {
     const handleConfirm = (event) => {
         event.preventDefault();
         axios
-            .patch(`http://localhost:5001/api/users/${userId}`, update, {
+            .patch(`https://pazzpaybe.cyclic.app/api/users/${userId}`, update, {
                 method: 'PATCH',
                 headers: {
                     'Content-type': 'application/x-www-form-urlencoded'

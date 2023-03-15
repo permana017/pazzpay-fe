@@ -17,7 +17,7 @@ function Reciever() {
 
     const getData = () => {
         axios
-            .get(`http://localhost:5001/api/users?search=${serach}`)
+            .get(`https://pazzpaybe.cyclic.app/api/users?search=${serach}`)
             .then(res => {
                 setData(res.data.data)
             })

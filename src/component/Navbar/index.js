@@ -32,7 +32,7 @@ function Navbar() {
     const userId = Cookies.get("@userLogin")
     useEffect(() => {
       axios
-        .get(`http://localhost:5001/api/users/${userId}`)
+        .get(`https://pazzpaybe.cyclic.app/api/users/${userId}`)
         .then(res => {
             setData(res.data.data)
         })
