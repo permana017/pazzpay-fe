@@ -11,10 +11,15 @@ import Cookies from 'js-cookie';
 
 function Confirmation() {
     const [result, setResult] = useState("")
+    const [data, setData] = useState([])
+    const transfer = (Cookies.get("@transfer"))
     
     const router = useRouter()
-    const data = JSON.parse(Cookies.get("@transfer"))
-    console.log(data);
+    useEffect(() => {
+        if(!transfer || transfer !== undefined || transfer !== null){
+            setData(JSON.parse(transfer))
+        }
+    }, [transfer])
     const btn = "btn btn-ghost w-20 mx-3 rounded-full text-4xl border-none h-20"
 
 
