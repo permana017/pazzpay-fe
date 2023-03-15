@@ -3,7 +3,7 @@ import {useEffect,useState} from 'react'
 import Image from 'next/image'
 import avatar from "public/avatar.png"
 import axios from 'axios'
-import { useRouter } from 'next/navigation';
+import { useRouter, redirect} from 'next/navigation';
 import Cookies from 'js-cookie';
 
 

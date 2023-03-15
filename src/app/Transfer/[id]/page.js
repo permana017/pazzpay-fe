@@ -8,7 +8,7 @@ import Navbar from 'src/component/Navbar'
 import Navigation from 'src/component/Navigation'
 import avatar from "public/avatar.png"
 import Footer from 'src/component/Footer'
-import { useRouter, usePathname  } from 'next/navigation';
+import { useRouter, usePathname, redirect } from 'next/navigation';
 import axios from 'axios';
 import Cookies from 'js-cookie';
 
