@@ -11,6 +11,7 @@ import CardInput from "src/component/CardInput/cardInput"
 import img from "public/mail.png"
 import imgLock from "public/lock.png"
 import axios from "axios";
+import Cookies from "js-cookie";
 
 
 function Login() {
@@ -29,7 +30,8 @@ function Login() {
           data: loginForm,
         })
           .then((res) => {
-            localStorage.setItem("@userLogin", JSON.stringify(res.data.result));
+            Cookies.set("@userLogin", res.data.result.user.user_id)
+            // console.log(res.data.result.user.user_id);
             alert(res.data.message);
             router.push("/Home");
           })

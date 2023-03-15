@@ -9,7 +9,7 @@ import graphic from "public/graphic.png"
 function CardGrapich() {
   return (
     <>
-        <div className='flex flex-col justify-between bg-white md:shadow-xl rounded-2xl w-full md:mt-8 md:p-10'>
+        <div className='flex flex-col justify-between bg-white md:shadow-xl rounded-2xl w-full md:mt-8 md:p-10 md:min-h-[529px]'>
             <div className='hidden md:flex justify-between'>
                 <div className="flex flex-col mt-5">
                     <Image className="w-8 h-8 mr-6 " src={arrow} alt=""/>

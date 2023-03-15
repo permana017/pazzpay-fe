@@ -24,7 +24,7 @@ function History() {
                     </div>
                     <div className='flex'>
                         <div className='w-full'>
-                            <CardHistory/>
+                            <CardHistory heigth='h-[720px]'/>
                         </div>
                     </div>
                     <Filter/>

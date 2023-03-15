@@ -2,12 +2,12 @@
 import React from 'react'
 import {useState, useEffect} from 'react';
 import axios from "axios"
+import Cookies from 'js-cookie'
+
 
 function Topup({showModal}) {
 
-    const userId = JSON.parse(localStorage.getItem("@userLogin"))
-        ?.user
-            ?.user_id;
+    const userId = Cookies.get("@userLogin")?.user?.user_id
     const [update, setUpdate] = useState({saldo: 0})
 
     const handleConfirm = (event) => {

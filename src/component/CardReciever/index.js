@@ -31,7 +31,7 @@ function CardReciever() {
 
   return (
     <>
-        <div className='flex flex-col md:bg-white  md:rounded-2xlw-full  md:shadow-xl mt-8'>
+        <div className='flex flex-col md:bg-white  md:rounded-2xl w-full  md:shadow-xl mt-8 md:h-[720px]'>
             <div className='flex justify-between mb-6 md:px-4 pt-10'>
                 <div className='w-full flex justify-center '>         
                     <input 
@@ -39,22 +39,24 @@ function CardReciever() {
                     type="text" placeholder="Serach Your Contact" className="input input-ghost w-[95%] bg-[#3A3D421A]" />
                 </div>
             </div>
-            {
-                data.map((item,i) => (
-                    <div 
-                    key={i}
-                    onClick={() => router.push(`/Transfer/${item.user_id}`)}
-                    className = "card bg-base-100 shadow-md w-full my-2 md:my-4 md:shadow-none" > 
-                        <div className="card-body p-4 flex flex-row justify-start items-center">
-                            <Image src={avatar} alt="avataravatar" className='w-16 mr-2'/>
-                            <div className='flex flex-col justify-between w-2/3'>
-                                <p className='font-semibold text-md mb-2'>{item.username}</p>
-                                <p className='font-normal text-[#646464] text-sm'>Transfer</p>
+            <div className='overflow-scroll scrollbar-hide'>
+                {
+                    data.map((item,i) => (
+                        <div 
+                        key={i}
+                        onClick={() => router.push(`/Transfer/${item.user_id}`)}
+                        className = "card bg-base-100 shadow-md w-full my-2 md:my-4 md:shadow-none" > 
+                            <div className="card-body p-4 flex flex-row justify-start items-center">
+                                <Image src={avatar} alt="avataravatar" className='w-16 mr-2'/>
+                                <div className='flex flex-col justify-between w-2/3'>
+                                    <p className='font-semibold text-md mb-2'>{item.username}</p>
+                                    <p className='font-normal text-[#646464] text-sm'>{item.phone_number}</p>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                ))
-            }
+                    ))
+                }
+            </div>
         </div>
     </>
   )

@@ -9,12 +9,19 @@ import logOut from "public/log-out.png"
 import { useRouter } from "next/navigation"
 import { useEffect, useState } from "react"
 import Topup from "../Topup"
+import Cookies from "js-cookie"
 
 
 
 function Navigation() {
     
     const router = useRouter()
+
+    const onLogout  = () =>{
+        alert("apakah kamu yakin")
+        Cookies.remove('@userLogin')
+        router.push('/')
+    }
 
 
   return (
@@ -49,7 +56,9 @@ function Navigation() {
                         </div>
                     </div>
                     <div>
-                        <div className="flex mb-5 cursor-pointer hover:text-[#6379F4] hover:font-semibold mt-64">
+                        <div
+                        onClick={onLogout} 
+                        className="flex mb-5 cursor-pointer hover:text-[#6379F4] hover:font-semibold mt-64">
                             <Image className="w-8 h-8 mr-6 " src={logOut} alt=""/>
                             <h2 className="text-lg">Logout</h2>
                         </div>

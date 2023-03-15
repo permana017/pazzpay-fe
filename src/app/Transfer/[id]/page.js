@@ -10,6 +10,7 @@ import avatar from "public/avatar.png"
 import Footer from 'src/component/Footer'
 import { useRouter, usePathname  } from 'next/navigation';
 import axios from 'axios';
+import Cookies from 'js-cookie';
 
 
 
@@ -17,10 +18,9 @@ import axios from 'axios';
 
 function TransferInput () {
     const router = useRouter();
-    const userId = JSON.parse(localStorage.getItem("@userLogin"))?.user?.user_id;
+    const userId =  Cookies.get("@userLogin")
     const pathname = usePathname();
     const id = pathname.split("/")[2]
-
     const [result, setResult] = useState(0)
     console.log("result", result);
     const [data, setData] = useState([])
@@ -70,7 +70,7 @@ function TransferInput () {
 
     const handleTransfer = (event) =>{
         event.preventDefault();
-        localStorage.setItem("@transfer", JSON.stringify(dataTransfer));
+        Cookies.set("@transfer", JSON.stringify(dataTransfer));
         router.push(`/Transfer/Confirmation/${data?.user_id}`);
     }
     const backspace = () => {

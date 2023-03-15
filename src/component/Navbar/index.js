@@ -7,6 +7,7 @@ import BeforeLogin from './beforeLogin';
 import { useRouter } from 'next/navigation';
 import axios from 'axios';
 import { root } from 'postcss';
+import Cookies from 'js-cookie';
 
 
 
@@ -28,21 +29,21 @@ function Navbar() {
         // const data = getUser()
         // console.log(data);
     const [data, setData] = useState([])
-    const userId = JSON.parse(localStorage.getItem("@userLogin"))?.user?.user_id;
+    const userId = Cookies.get("@userLogin")
     useEffect(() => {
-        axios
+      axios
         .get(`http://localhost:5001/api/users/${userId}`)
         .then(res => {
             setData(res.data.data)
         })
         .catch(err => console.log(err))
-    }, [])
+    }, [userId])
 
     const router = useRouter()
     const [isLogin, setIsLogin] = useState(false)
     
     useEffect(()=> {
-        if(localStorage.getItem('@userLogin')) {
+        if(Cookies.get('@userLogin')) {
             setIsLogin(true)
         }else {
             setIsLogin(false)
@@ -50,7 +51,7 @@ function Navbar() {
         },[])
     
     const onLogout  = () =>{
-        localStorage.removeItem('@userLogin')
+        Cookies.remove('@userLogin')
         setIsLogin(false)
         router.push('/Home')
     }

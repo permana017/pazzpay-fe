@@ -7,12 +7,14 @@ import avatar from "public/avatar.png"
 import Footer from 'src/component/Footer'
 import { useRouter } from 'next/navigation';
 import axios  from 'axios';
+import Cookies from 'js-cookie';
 
 function Confirmation() {
     const [result, setResult] = useState("")
     
     const router = useRouter()
-    const data = JSON.parse(localStorage.getItem("@transfer"))
+    const data = JSON.parse(Cookies.get("@transfer"))
+    console.log(data);
     const btn = "btn btn-ghost w-20 mx-3 rounded-full text-4xl border-none h-20"
 
 
@@ -22,6 +24,11 @@ function Confirmation() {
     //     reciever_id: data.reciever_id,
     //     amount: data.amount
     // }
+
+    let d = new Date
+
+    const date = d.getDate() + "-" + d.getMonth() + "-" + d.getFullYear() + " , " + d.getHours()+ "." + d.getMinutes()
+
 
 
 
@@ -36,12 +43,13 @@ function Confirmation() {
             amount: data.amount
         })
           .then((res) => {
-            // console.log(res.data.data.message);
             alert(res.data.data.message);
+            router.push("Home")
         })
         .catch((res) => {
             alert(res.response.data.message);
-            router.push("/Transfer/Confirmation")
+            console.log(res.response.data.message);
+            router.push("/Transfer")
           });
       };
 
@@ -80,7 +88,7 @@ function Confirmation() {
                         </div>
                         <div className='p-4'>
                             <p className='text-base'>Date & Time</p>
-                            <p className='font-medium text-xl'></p>
+                            <p className='font-medium text-xl'>{date}</p>
                         </div>
                         <div className='p-4'>
                             <p className='text-base'>Notes</p>
