@@ -26,38 +26,40 @@ export default function Home() {
         <div>
             <section
                 className="w-full bg-[url('../../src/assets/banner.webp')] bg-cover flex flex-col items-center">
-                <navbar className="container fixed z-10">
-                    <div className='w-full flex justify-between md:h-[160px] h-[100px] items-center'>
-                        <Fade left>
-                            <p className='w-50 md:text-[30px] text-[24px] font-bold text-white'>FazzPay</p>
-                        </Fade>
-                        <Fade right>
-                            <div className='flex'>
-                                <button 
-                                onClick={()=>router.push("/Login")}
-                                className="btn btn-outline mr-4 text-white md:px-8 md:mr-8 border-[2px] md:btn-md btn-sm">Login</button>
-                                <button 
-                                onClick={()=>router.push("/Signup")}
-                                className="btn text-[#6379F4] bg-white border-none md:px-6 md:btn-md btn-sm ">Signup</button>
-                            </div>
-                        </Fade>
+                <navbar className="fixed z-10 backdrop-blur-2xl bg-[#6379F4]/80 shadow-lg w-full">
+                    <div className='container z-20'>
+                        <div className='w-full flex justify-between md:h-[100px] h-[80px] items-center'>
+                            <Fade left>
+                                <p className='w-50 md:text-[30px] text-[24px] font-bold text-white'>FazzPay</p>
+                            </Fade>
+                            <Fade right>
+                                <div className='flex'>
+                                    <button 
+                                    onClick={()=>router.push("/Login")}
+                                    className="btn btn-outline mr-4 text-white md:px-8 md:mr-8 border-[2px] md:btn-md btn-sm">Login</button>
+                                    <button 
+                                    onClick={()=>router.push("/Signup")}
+                                    className="btn text-[#6379F4] bg-white border-none md:px-6 md:btn-md btn-sm ">Signup</button>
+                                </div>
+                            </Fade>
+                        </div>
                     </div>
                 </navbar>
-                <div className='container flex'>
-                <Fade left>
-                    <div className='md:w-1/2 md:pt-40 pt-24 w-full pb-10'>
-                            <p
-                                className='text-xl text-[48px] leading-[60px] md:text-[60px] font-bold text-[#FFFFFF] mb-10 h-auto md:leading-[90px]'>Awesome App For Saving Time.</p>
-                            <p className='md:text-xl text-lg text-[#FFFFFF] mb-12'>We bring you a mobile app for
-                                banking problems that oftenly wasting much of your times.</p>
-                            <button className='btn bg-[#FFF] border-none color-[#6379F4] px-8'>Try It Free</button>
+                <div className='container flex mt-[140px]'>
+                    <Fade left>
+                        <div className='md:w-1/2 md:pt-40 pt-24 w-full pb-10'>
+                                <p
+                                    className='text-xl text-[48px] leading-[60px] md:text-[60px] font-bold text-[#FFFFFF] mb-10 h-auto md:leading-[90px]'>Awesome App For Saving Time.</p>
+                                <p className='md:text-xl text-lg text-[#FFFFFF] mb-12'>We bring you a mobile app for
+                                    banking problems that oftenly wasting much of your times.</p>
+                                <button className='btn bg-[#FFF] border-none color-[#6379F4] px-8'>Try It Free</button>
+                            </div>
+                    </Fade>
+                    <Fade bottom>
+                        <div className='hidden md:flex w-1/2 pt-20'>
+                            <Image src={img} alt="image" width={600} className="h-[750px] ml-10"/>
                         </div>
-                </Fade>
-                <Fade bottom>
-                    <div className='hidden md:flex w-1/2 pt-20'>
-                        <Image src={img} alt="image" width={600} className="h-[750px] ml-10"/>
-                    </div>
-                </Fade>
+                    </Fade>
                 </div>
             </section>
             <section className='w-full flex justify-center bg-[#473AD10F]'>
