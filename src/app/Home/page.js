@@ -29,10 +29,6 @@ function Home() {
     }
     
 
-    if (!userId || userId == null || userId == undefined ) {
-        redirect("/")
-    }
-
     const [user, setUser] = useState([])
     useEffect(() => {
         axios

@@ -12,6 +12,8 @@ import imgLock from "public/lock.png"
 import imgPhone from "src/assets/phone.png"
 import axios from "axios";
 import { useRouter } from "next/navigation";
+import React from 'react';
+import Fade from 'react-reveal/Fade';
 
 function SignUp() {
     const router = useRouter()
@@ -57,13 +59,21 @@ function SignUp() {
             <div
                 className="md:bg-banner md:bg-cover md:w-[60%] md:text-white hidden md:flex ">
                 <div className="container">
-                    <p className="pt-14 text-3xl font-semibold mb-10">FazzPay</p>
-                    <Image src={hero} alt="name" className="w-full"/>
-                    <p className="mb-8 text-2xl font-semibold">App that Covering Banking Needs.</p>
-                    <p className="mb-14 text-base text-[#FFFFFFCC] font-normal">FazzPay is an
-                        application that focussing in banking needs for all users in the world. Always
-                        updated and always following world trends. 5000+ users registered in FazzPay
-                        everyday with worldwide users coverage.</p>
+                    <Fade left >
+                        <p className="pt-14 text-3xl font-semibold mb-10">FazzPay</p>
+                    </Fade>
+                    <Fade left delay={200}>
+                        <Image src={hero} alt="name" className="w-full"/>
+                    </Fade>
+                    <Fade bottom delay={600} >
+                        <p className="mb-8 text-2xl font-semibold">App that Covering Banking Needs.</p>
+                    </Fade>
+                    <Fade bottom delay={800} >
+                        <p className="mb-14 text-base text-[#FFFFFFCC] font-normal">FazzPay is an
+                            application that focussing in banking needs for all users in the world. Always
+                            updated and always following world trends. 5000+ users registered in FazzPay
+                            everyday with worldwide users coverage.</p>
+                    </Fade>
                 </div>
             </div>
             <div className='flex flex-col justify-between items-center h-[100vh] md:h-auto md:w-[40%] md:pr-[134px]'>
