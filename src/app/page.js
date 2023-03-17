@@ -12,6 +12,7 @@ import phoneHistory from "src/assets/phone-history.webp"
 import imgResponder from "src/assets/users.png"
 import { useRouter } from 'next/navigation'
 import React from 'react';
+import Fade from 'react-reveal/Fade';
 
 const inter = Inter({subsets: ['latin']})
 
@@ -28,7 +29,10 @@ export default function Home() {
                 <navbar className="fixed z-10 backdrop-blur-2xl bg-[#6379F4]/80 shadow-lg w-full flex justify-center">
                     <div className='container z-20'>
                         <div className='w-full flex justify-between md:h-[100px] h-[80px] items-center'>
+                            <Fade left>
                                 <p className='w-50 md:text-[30px] text-[24px] font-bold text-white'>FazzPay</p>
+                            </Fade>
+                            <Fade right>
                                 <div className='flex'>
                                     <button 
                                     onClick={()=>router.push("/Login")}
@@ -37,10 +41,12 @@ export default function Home() {
                                     onClick={()=>router.push("/Signup")}
                                     className="btn text-[#6379F4] bg-white border-none md:px-6 md:btn-md btn-sm ">Signup</button>
                                 </div>
+                            </Fade>
                         </div>
                     </div>
                 </navbar>
                 <div className='container flex mt-[140px]'>
+                    <Fade left>
                         <div className='md:w-1/2 md:pt-40 pt-24 w-full pb-10'>
                                 <p
                                     className='text-xl text-[48px] leading-[60px] md:text-[60px] font-bold text-[#FFFFFF] mb-10 h-auto md:leading-[90px]'>Awesome App For Saving Time.</p>
@@ -48,9 +54,12 @@ export default function Home() {
                                     banking problems that oftenly wasting much of your times.</p>
                                 <button className='btn bg-[#FFF] border-none color-[#6379F4] px-8'>Try It Free</button>
                             </div>
+                    </Fade>
+                    <Fade bottom>
                         <div className='hidden md:flex w-1/2 pt-20'>
                             <Image src={img} alt="image" width={600} className="h-[750px] ml-10"/>
                         </div>
+                    </Fade>
                 </div>
             </section>
             <section className='w-full flex justify-center bg-[#473AD10F]'>
@@ -63,14 +72,19 @@ export default function Home() {
             <section className='w-full flex justify-center bg-[#FAFCFF]'>
                 <div className='container'>
                     <div className='flex flex-col items-center md:py-[120px] py-16'>
+                    <Fade bottom>
                         <p className='md:text-[60px] text-[48px] font-extrabold mb-8 text-center md:text-left'>
                         
                             <span className='text-[#6379F4]'>About
                             </span> the Application.
                         </p>
+                            </Fade>
+                            <Fade bottom>
                         <p className='text-xl md:w-[55%] w-[95%] text-center'>We have some great features from the
                             application and it’s totally free to use by all users around the world.</p>
+                            </Fade>
                         <div className='w-full mt-10  flex flex-col md:flex-row md:justify-between'>
+                        <Fade bottom>
                             <div className="card md:w-[32%] w-full mb-8 md:mb-0 bg-base-100 shadow-xl ">
                                 <div className="card-body items-center">
                                     <Image src={Phone} className="mt-4" alt='hahahah'/>
@@ -79,6 +93,8 @@ export default function Home() {
                                         so you can contact us whenever you want and we will respond it.</p>
                                 </div>
                             </div>
+                            </Fade>
+                            <Fade bottom delay={200}>
                             <div className="card md:w-[32%] w-full mb-8 md:mb-0 bg-base-100 shadow-xl">
                                 <div className="card-body items-center">
                                     <Image src={Lock} className="mt-4" alt='hahahah'/>
@@ -87,6 +103,8 @@ export default function Home() {
                                         safe in our database and we will encrypt any data you submitted to us.</p>
                                 </div>
                             </div>
+                            </Fade>
+                            <Fade bottom delay={400}>
                             <div className="card md:w-[32%] w-full mb-8 md:mb-0 bg-base-100 shadow-xl">
                                 <div className="card-body items-center">
                                     <Image src={download_icon} className="mt-4" alt='hahahah'/>
@@ -95,6 +113,7 @@ export default function Home() {
                                         to use it’s now available on Google Play Store and App Store.</p>
                                 </div>
                             </div>
+                            </Fade>
                         </div>
                     </div>
                 </div>
@@ -103,37 +122,49 @@ export default function Home() {
                 <div className='container'>
                     <div className='w-full flex justify-between'>
                         <div className='hidden md:w-[40%] md:flex md:flex-col'>
-                            <Image src={phoneHistory} alt="" className='w-[469px]'/>
-                            <Image src={phoneCart} alt="" className='w-[469px]'/>
+                            <Fade top>
+                                <Image src={phoneHistory} alt="" className='w-[469px]'/>
+                            </Fade>
+                            <Fade bottom>
+                                <Image src={phoneCart} alt="" className='w-[469px]'/>
+                            </Fade>
                         </div>
                         <div className='md:w-[60%] w-full md:py-[174px] py-[60px] md:pl-5'>
-                            <p className='md:text-[60px] text-[48px] md:w-[80%] w-full font-bold mb-8'>All The <span className='text-[#6379F4]'> Great </span>
-                                FazzPay Features.</p>
+                            <Fade bottom>
+                                <p className='md:text-[60px] text-[48px] md:w-[80%] w-full font-bold mb-8'>All The <span className='text-[#6379F4]'> Great </span>
+                                    FazzPay Features.</p>
+                            </Fade>
                             <div className='mt-10 w-full flex flex-col'>
-                                <div className="card w-full bg-base-100 shadow-xl">
-                                    <div className="card-body p-6">
-                                        <h2 className="card-title">
-                                            <span className='text-[#6379F4]'>1.
-                                            </span>Small Fee</h2>
-                                        <p className='text-[#3A3D42E5] md:text-xl text-lg'>We only charge 5% of every success transaction done in FazzPay app.</p>
+                                <Fade right delay={200}>
+                                    <div className="card w-full bg-base-100 shadow-xl">
+                                        <div className="card-body p-6">
+                                            <h2 className="card-title">
+                                                <span className='text-[#6379F4]'>1.
+                                                </span>Small Fee</h2>
+                                            <p className='text-[#3A3D42E5] md:text-xl text-lg'>We only charge 5% of every success transaction done in FazzPay app.</p>
+                                        </div>
                                     </div>
-                                </div>
-                                <div className="card w-full bg-base-100 shadow-xl mt-8">
-                                    <div className="card-body p-6">
-                                        <h2 className="card-title">
-                                            <span className='text-[#6379F4]'>2.
-                                            </span>Data Secured</h2>
-                                        <p className='text-[#3A3D42E5] md:text-xl text-lg'>All your data is secured properly in our system and it’s encrypted.</p>
+                                </Fade>
+                                <Fade right delay={400}>
+                                    <div className="card w-full bg-base-100 shadow-xl mt-8">
+                                        <div className="card-body p-6">
+                                            <h2 className="card-title">
+                                                <span className='text-[#6379F4]'>2.
+                                                </span>Data Secured</h2>
+                                            <p className='text-[#3A3D42E5] md:text-xl text-lg'>All your data is secured properly in our system and it’s encrypted.</p>
+                                        </div>
                                     </div>
-                                </div>
-                                <div className="card w-full bg-base-100 shadow-xl mt-8">
-                                    <div className="card-body p-6">
-                                        <h2 className="card-title">
-                                            <span className='text-[#6379F4]'>3.
-                                            </span>User Friendly</h2>
-                                        <p className='text-[#3A3D42E5] md:text-xl text-lg'>FazzPay come up with modern and sleek design and not complicated.</p>
+                                </Fade>
+                                <Fade right delay={600}>
+                                    <div className="card w-full bg-base-100 shadow-xl mt-8">
+                                        <div className="card-body p-6">
+                                            <h2 className="card-title">
+                                                <span className='text-[#6379F4]'>3.
+                                                </span>User Friendly</h2>
+                                            <p className='text-[#3A3D42E5] md:text-xl text-lg'>FazzPay come up with modern and sleek design and not complicated.</p>
+                                        </div>
                                     </div>
-                                </div>
+                                </Fade>
                             </div>
                         </div>
                     </div>
@@ -142,12 +173,15 @@ export default function Home() {
             <section className='flex w-full justify-center bg-[#FAFCFF]'>
                 <div className='container'>
                     <div className='w-full flex flex-col items-center md:py-[120px] py-16'>
+                        <Fade bottom>
                             <p className='md:text-[60px] text-[48px] font-bold text-center'>What Users are
                                 <span className='text-[#6379F4]'> Saying.</span>
                             </p>
                             <p className='text-xl text-[#3A3D42] md:w-[55%] w-full text-center justify-center mt-8'>We
                                 have some great features from the application and it’s totally free to use by
                                 all users around the world.</p>
+                        </Fade>
+                        <Fade bottom delay={400}>
                             <div className='w-full mt-10'>
                                 <div className="carousel w-full">
                                     <div
@@ -224,6 +258,7 @@ export default function Home() {
                                     </div>
                                 </div>
                             </div>
+                        </Fade>
                     </div>
                 </div>
             </section>
@@ -231,21 +266,33 @@ export default function Home() {
                 <div className='container'>
                     <div className='py-12 md:py-20 w-full'>
                         <div className='border-b-[1px] pb-12 mb-4'>
-                            <p className='text-white font-semibold text-[#FFFFFF] text-[34px] mb-[30px]'>FazzPay</p>
-                            <p className='md:w-1/4 w-full text-[#EFEFEFBF]'>Simplify financial needs and saving much time in banking needs with one single app.</p>
-                            <div className='w-full flex flex-col text-white md:hidden mt-5'>
-                                <p>+62 5637 8882 9901</p>
-                                <p>contact@fazzpay.com</p>
-                            </div>
+                            <Fade left delay={200}>
+                                <p className='text-white font-semibold text-[#FFFFFF] text-[34px] mb-[30px]'>FazzPay</p>
+                            </Fade>
+                            <Fade left delay={400}>
+                                <p className='md:w-1/4 w-full text-[#EFEFEFBF]'>Simplify financial needs and saving much time in banking needs with one single app.</p>
+                            </Fade>
+                            <Fade left delay={600}>
+                                <div className='w-full flex flex-col text-white md:hidden mt-5'>
+                                    <p>+62 5637 8882 9901</p>
+                                    <p>contact@fazzpay.com</p>
+                                </div>
+                            </Fade>
                         </div>
                         <div className='w-ful flex justify-between text-[#FFFFFF]'>
-                            <div className='md:w-1/3 w-full'>
-                                <p>2020 FazzPay. All right reserved.</p>
-                            </div>
+                            <Fade bottom delay={800}>
+                                <div className='md:w-1/3 w-full'>
+                                    <p>2020 FazzPay. All right reserved.</p>
+                                </div>
+                            </Fade>
                             <div className='hidden w-1/3 md:flex justify-between'>
+                            <Fade bottom delay={1000}>
                                 <p>+62 5637 8882 9901</p>
+                            </Fade>
+                            <Fade bottom delay={1000}>
                                 <p>contact@fazzpay.com</p>
-                            </div>
+                            </Fade>
+                            </div>     
                         </div>
                     </div>
                 </div>
