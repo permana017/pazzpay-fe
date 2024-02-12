@@ -1,41 +1,36 @@
-
-'use client'
-import React from 'react'
-import Image from 'next/image'
-import arrowUp from "public/arrow-up-black.png"
-import Navbar from 'src/component/Navbar'
-import Navigation from 'src/component/Navigation'
-import Footer from 'src/component/Footer'
-import Filter from 'src/component/Filter'
-import { useRouter } from 'next/navigation'
-import Reciever from 'src/component/CardReciever'
-
+"use client";
+import React from "react";
+import Image from "next/image";
+import arrowUp from "public/arrow-up-black.png";
+import Navbar from "src/component/Navbar";
+import Navigation from "src/component/Navigation";
+import Footer from "src/component/Footer";
+import Filter from "src/component/Filter";
+import { useRouter } from "next/navigation";
+import Reciever from "src/component/CardReciever";
+import { FaChevronLeft } from "react-icons/fa6";
 
 function Transfer() {
-    const router = useRouter()
+    const router = useRouter();
     return (
-        <main className='flex flex-col items-center w-full'>
-            <Navbar/>
-            <div className='container md:mt-36 flex justify-center'>
-                <Navigation/>
-                <section className='md:w-[76%] w-full'>
-                    <div className='mt-12 mb-10 flex items-center md:hidden'>
-                        <Image 
-                        onClick={()=>router.push("/Home")}
-                        src={arrowUp} alt="avatar" className='w-8 h-8 -rotate-90'/>
-                        <p className='font-bold ml-5 text-xl'>reciever</p>
-                    </div>
-                    <div className='flex'>
-                        <div className='w-full'>
-                            <Reciever/>
+        <>
+            <main className="flex flex-col items-center w-full h-screen">
+                <Navbar />
+                <div className="container md:pt-28 md:pb-5 flex justify-center h-screen">
+                    <Navigation />
+                    <section className='md:w-[76%] w-full h-full'>
+                        <div className='py-5 flex items-center md:hidden'>
+                            <FaChevronLeft />
+                            <p className='font-bold ml-2'>Reciever</p>
                         </div>
-                    </div>
-                    <Filter/>
-                </section>
-            </div>
-            <Footer/>
-        </main>
-    )
+                        <Reciever />
+                        <Filter />
+                    </section>
+                </div>
+            </main>
+            <Footer />
+        </>
+    );
 }
 
-export default Transfer
+export default Transfer;
