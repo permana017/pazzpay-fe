@@ -1,16 +1,24 @@
-
-'use client';
-import { useRouter } from 'next/navigation';
-
+"use client";
+import { useRouter } from "next/navigation";
 
 function BeforeLogin() {
-  const router = useRouter()
+  const router = useRouter();
   return (
     <div>
-        <button className="btn btn-outline btn-primary mr-3" onClick={() => router.push('/Login')}>Login</button>
-        <button className="btn btn-primary" onClick={() => router.push('/Signup')}>Signup</button>
+      <button
+        className="btn btn-outline btn-primary mr-3"
+        onClick={() => router.push("/auth/login")}
+      >
+        Login
+      </button>
+      <button
+        className="btn btn-primary"
+        onClick={() => router.push("/auth/sign-up")}
+      >
+        Signup
+      </button>
     </div>
-  )
+  );
 }
 
-export default BeforeLogin
+export default BeforeLogin;
