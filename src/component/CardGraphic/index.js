@@ -3,7 +3,7 @@ import { FaArrowUp } from "react-icons/fa6";
 function CardGrapich() {
   return (
     <>
-      <div className="flex flex-col justify-between bg-white md:shadow-xl rounded-2xl w-full md:p-5">
+      <div className="flex flex-col justify-between bg-white md:shadow-md rounded-2xl w-full md:p-5">
         <div className="hidden md:flex justify-between">
           <div className="flex flex-col">
             <FaArrowUp size={28} className="text-green-500" />

@@ -73,7 +73,7 @@ function AuthLayout({ children }) {
           </Fade>
         </div>
       </div>
-      <div className="flex flex-col items-center h-[100vh] md:h-auto lg:w-[40%] md:w-[50%] p-5 md:py-5 md:pr-10 lg:pr-24">
+      <div className="flex flex-col items-center h-[100vh] md:h-auto lg:w-[40%] md:w-[50%] p-5 md:py-5 md:pr-10 lg:pr-24 bg-white">
         <div className="pt-14 pb-10 text-3xl text-[#6379F4] font-semibold md:hidden">
           FazzPay
         </div>

@@ -38,7 +38,7 @@ function Login() {
         icon: "success",
         confirmButtonColor: "#6379F4",
       });
-      router.push("/Home");
+      router.push("/dashboard");
     } catch (error) {
       setValidate({ error: true, message: error.response.data?.message });
     } finally {

@@ -1,6 +1,5 @@
 "use client";
 import { Inter } from "@next/font/google";
-import Navbar from "src/component/Navbar";
 import img from "../../src/assets/png-phone.webp";
 import Image from "next/image";
 import imgPartner from "src/assets/partners.png";
@@ -62,7 +61,7 @@ export default function Home() {
                 We bring you a mobile app for banking problems that oftenly
                 wasting much of your times.
               </p>
-              <button className="btn bg-[#FFF] border-none color-[#6379F4] px-8">
+              <button className="btn bg-[#FFF] border-none color-[#6379F4] px-8 capitalize">
                 Try It Free
               </button>
             </div>

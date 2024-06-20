@@ -4,6 +4,20 @@ import Cookies from "js-cookie";
 import Modal from "src/component/Modal/index";
 import { IoMdClose } from "react-icons/io";
 import axiosInstance from "@/helper/axiosInstance";
+import CurrencyInput from "react-currency-input-field";
+import Swal from "sweetalert2";
+
+// function InputCurrency(value, valueChange, onChange) {
+//   return (
+//     <input
+//       onChange={onChange}
+//       value
+//       type="number"
+//       placeholder="Type here"
+//       className="input input-bordered w-full"
+//     />
+//   );
+// }
 
 function Topup({ isOpen, onClose, data, refetch }) {
   const userId = Cookies.get("@userLogin");
@@ -18,7 +32,13 @@ function Topup({ isOpen, onClose, data, refetch }) {
     axiosInstance
       .patch(`users/${userId}`, { saldo: count })
       .then((res) => {
+        console.log(res);
         refetch();
+        Swal.fire({
+          title: "Success Topup!",
+          icon: "success",
+          confirmButtonColor: "#6379F4",
+        });
       })
       .catch((err) => {
         console.log(err);
@@ -26,8 +46,7 @@ function Topup({ isOpen, onClose, data, refetch }) {
       .finally(() => onClose());
   };
 
-  const handleInput = (e) => {
-    let { value } = e.target;
+  const handleInput = (value) => {
     setUpdate({ ...update, saldo: value });
   };
 
@@ -47,16 +66,28 @@ function Topup({ isOpen, onClose, data, refetch }) {
               className="cursor-pointer text-red-500"
             />
           </div>
-          <h3 className="text-sm mb-7 w-full  md:w-[50%]">
+          <h3 className="text-sm mb-7 w-full">
             Enter the amount of money, and click submit
           </h3>
-          <input
+          {/* <input
             onChange={handleInput}
             type="number"
             placeholder="Type here"
             className="input input-bordered w-full"
+          /> */}
+          <CurrencyInput
+            id="input-example"
+            name="input-name"
+            className="input input-bordered w-full"
+            placeholder="Please input balance here"
+            prefix="Rp "
+            // decimalsLimit={2}
+            onValueChange={(value, name, values) => handleInput(value)}
           />
-          <button className="btn btn-active btn-primary mt-7" type="submit">
+          <button
+            className="btn btn-active btn-primary mt-7 capitalize"
+            type="submit"
+          >
             Confirm
           </button>
         </div>
